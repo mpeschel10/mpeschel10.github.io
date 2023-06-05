@@ -1,4 +1,8 @@
-genfstab -U /mnt >> /mnt/etc/fstab
+[ -z "$MOUNTPOINT" ] && MOUNTPOINT=/mnt
+
+export MOUNTPOINT
+sudo sh -c "genfstab -U '$MOUNTPOINT' >> '$MOUNTPOINT/etc/fstab'"
+
 echo Doing arch-chroot into /mnt.
 echo Next script should be /home/mpeschel/projects/migration/install_scripts/60_miscellaneous.sh
-arch-chroot /mnt
+sudo arch-chroot "$MOUNTPOINT"

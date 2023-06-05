@@ -1,7 +1,11 @@
+name="ARCH LINUX"
+[ ! -z "$INSTALL_NAME" ] && name="$INSTALL_NAME"
+
 if ! test -z "$3"; then
 	root="$1"
 	boot_disk="$2"
 	boot_partition="$3"
+    [ ! -z "$4" ] && name="$4"
 else
 	if ! test -z "$2" || ! test -z "$1"; then
 		echo You must give either all three arguments or none of them.
@@ -23,7 +27,7 @@ else
 fi
 
 echo Writing UEFI boot entry...
-efibootmgr --create --disk "$boot_disk" --part  "$boot_partition" --label "Arch Linux" --loader /vmlinuz-linux --unicode "root=${root} rw initrd=\initramfs-linux.img"
+efibootmgr --create --disk "$boot_disk" --part  "$boot_partition" --label "$name" --loader /vmlinuz-linux --unicode "root=${root} rw initrd=\initramfs-linux.img"
 
 echo You may want to clean up boot entries\; do
 echo efibootmgr --unicode -B -b n

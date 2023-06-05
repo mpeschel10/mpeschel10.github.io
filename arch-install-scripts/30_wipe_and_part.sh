@@ -2,6 +2,12 @@ if test -z "$1"; then
     echo You must provide the device of the drive as an argument.
     exit 1
 fi
+if [ -z "$SUZERAIN_CLEAN" ]; then
+    echo Are you sure you want to wipe the whole disk for a clean install?
+    echo If so, unset SUZERAIN_CLEAN and run this script again.
+    exit 2
+fi
+
 echo This script will erase and reformat the drive you gave it as argument.
 echo This operation will result in data loss on the entire drive.
 echo It will also prevent any operating system which uses that drive as a boot loader from booting.
