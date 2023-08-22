@@ -7,7 +7,7 @@ fi
 
 packages="base linux linux-firmware networkmanager"
 if [ "$action" = clean ]; then
-    packages="${packages} python python-pytorch-rocm"
+    packages="${packages} python"
 else
     packages="${packages} efibootmgr sudo man man-db rsync git base-devel"
     if [ "$action" = desktop || "$action" = "machine learning" ]; then
