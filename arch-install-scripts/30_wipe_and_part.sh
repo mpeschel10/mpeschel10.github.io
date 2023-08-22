@@ -2,7 +2,7 @@ if test -z "$1"; then
     echo You must provide the device of the drive as an argument.
     exit 1
 fi
-if [ -z "$SUZERAIN_CLEAN" ]; then
+if [ -n "$SUZERAIN_CLEAN" ]; then
     echo Are you sure you want to wipe the whole disk for a clean install?
     echo If so, unset SUZERAIN_CLEAN and run this script again.
     exit 2
