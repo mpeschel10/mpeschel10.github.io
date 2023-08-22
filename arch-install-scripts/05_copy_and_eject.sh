@@ -2,7 +2,7 @@
 [ -d /mnt/install_scripts ] && script_dir="/mnt/install_scripts"
 [ -d /install_scripts/install_scripts ] && script_dir="/install_scripts/install_scripts"
 
-if [ -f /etc/hostname ] ; then
+if [ `cat /etc/hostname` != archiso ] ; then
     echo Is this an already installed system? You don\'t need to run 05_copy_and_eject.
     exit 0
 fi
