@@ -9,7 +9,7 @@ links = [url_base + str(path.relative_to(script_dir)) for
 
 with open(link_path, 'w') as link_file:
     link_file.write('#!/bin/sh\n')
-    for link in links:
+    for link in sorted(links):
         command = 'curl %s > %s\n' % (link, Path(link).name)
         link_file.write(command)
 
