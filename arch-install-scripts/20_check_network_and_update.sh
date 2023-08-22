@@ -1,5 +1,5 @@
 echo Confirming network connection.
-ping -c 2 archlinux.org && echo Network ok # Failure should terminate the script
+ping -c 2 archlinux.org && echo Network ok || (echo FAILURE; exit 2) # Failure should terminate the script
 
 if [ -z "$SUZERAIN_CLEAN" ]; then
     echo Updating local keyring.
