@@ -10,7 +10,7 @@ if [ "$action" = clean ]; then
     packages="${packages} python"
 else
     packages="${packages} efibootmgr sudo man man-db rsync git base-devel"
-    if [ "$action" = desktop || "$action" = "machine learning" ]; then
+    if [[ "$action" = desktop || "$action" = "machine learning" ]]; then
         packages="${packages} gvim python python-pip firefox keepassxc discord gnome gdm libreoffice dust vscode"
         if [ "$action" = "machine learning" ]; then
             packages="${packages} gcc hip-runtime-amd"
